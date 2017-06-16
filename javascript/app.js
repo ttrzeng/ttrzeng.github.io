@@ -1,4 +1,4 @@
-var TalentPage = angular.module("TalentPage", ["ngMaterial", "ui.router", "ngRoute"]);
+var TalentPage = angular.module("TalentPage", ["ui.router", "ngRoute"]);
 
 TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 	function($stateProvider, $urlRouterProvider, $locationProvider){
@@ -62,7 +62,3 @@ TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 		// });
 	}
 ]);
-
-$(document).on("ready page:load", function(){
-	angular.bootstrap(document.body, ["TalentPage"]);
-});
