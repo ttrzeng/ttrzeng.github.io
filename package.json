@@ -21,6 +21,7 @@
     "express-session": "latest",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-cache": "^0.4.6",
+    "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^3.7.0",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",

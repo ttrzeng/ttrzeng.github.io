@@ -14,6 +14,7 @@ var gulp = require('gulp'),
 	lr = require('tiny-lr'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
+	clean = require('gulp-clean'),
 	server = lr();
 
 // Server - listed on localhost:8080
@@ -23,35 +24,37 @@ gulp.task('webserver', function() {
 
 //Path sources
 var SOURCEPATHS = {
-	html: '*.html',
-	stylesheet: 'stylesheet/*.css',
-	javascript: 'javascript/*.js',
-	images: 'assets/**',
-	blogposts: 'blogposts/*.html'
+	root: 'src/index.html',
+	views: 'src/views/*.html',
+	stylesheet: 'src/stylesheet/*.css',
+	javascript: 'src/javascript/*.js',
+	images: 'src/assets/**',
+	blogposts: 'src/blogposts/*.html'
 }
 
 var APPPATH = {
-	root: 'dist',
-	css: 'dist/css',
-	js: 'dist/js',
-	images: 'dist/images',
-	blogposts: 'dist/blogposts'
+	root: 'app',
+	css: 'app/css',
+	js: 'app/js',
+	images: 'app/images',
+	views: 'app/views',
+	blogposts: 'app/blogposts'
 }
 
 // gulp.task('sass', function() {
 //   return gulp.src('styles/styles.scss')
 // 	.pipe(sass({ style: 'expanded' }))
 // 	.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-// 	.pipe(gulp.dest('dist/scss'))
+// 	.pipe(gulp.dest('app/scss'))
 // 	.pipe(notify({ message: 'Styles task complete' }));
 // });
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
 	return gulp.src(SOURCEPATHS.javascript)
-		.pipe(concat('scripts.js'))
+		.pipe(concat('main.js'))
 		.pipe(gulp.dest(APPPATH.js))
-		.pipe(rename('scripts.min.js'))
+		.pipe(rename('main.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest(APPPATH.js));
 });
@@ -74,17 +77,30 @@ gulp.task('images', function() {
     .pipe(notify({ message: 'Images task complete' }));
 });
 
-gulp.task('serve', ['webserver', 'scripts', 'min-css', 'images', 'copy', 'blogposts'], function(){
-	browserSync.init([APPPATH.css + '/*.css', APPPATH.root + '/*.html', APPPATH.js + '/*.js', APPPATH.images + '/**'], {
+
+//Browser Sync
+gulp.task('serve', ['webserver', 'scripts', 'min-css', 'images', 'copy', 'copy-root', 'blogposts', 'clean-html'], function(){
+	browserSync.init([APPPATH.css + '/*.css', APPPATH.views + '/*.html', APPPATH.root, APPPATH.js + '/*.js', APPPATH.images + '/**'], {
 		server: {
 			baseDir: APPPATH.root
 		}
 	})
 })
 
-//Copy
-gulp.task('copy', function() {
-	gulp.src(SOURCEPATHS.html)
+gulp.task('clean-html', function() {
+	return gulp.src(APPPATH.views + '/*.html', {read: false, force: true})
+		.pipe(clean())
+});
+
+//Copy view folder
+gulp.task('copy', ['clean-html'], function() {
+	gulp.src(SOURCEPATHS.views)
+	.pipe(gulp.dest(APPPATH.views))
+});
+
+//Copy index.html
+gulp.task('copy-root', function() {
+	gulp.src(SOURCEPATHS.root)
 	.pipe(gulp.dest(APPPATH.root))
 });
 
@@ -100,8 +116,9 @@ gulp.task('watch', ['serve'], function() {
   // Watch .scss files
   //gulp.watch('sass/**/*.scss', ['styles']);
 
-  //Watch HTML
-  gulp.watch(SOURCEPATHS.html, ['copy']);
+  //Watch for view changes
+  gulp.watch(SOURCEPATHS.root, ['copy-root']);
+  gulp.watch(SOURCEPATHS.views, ['copy']);
 
   //Watch blogposts
   gulp.watch(SOURCEPATHS.blogposts, ['copy']);
