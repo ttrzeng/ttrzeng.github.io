@@ -18,7 +18,19 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "express-session": "latest",
-    "jade": "~1.11.0",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cache": "^0.4.6",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-install": "^1.1.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.9.5",
     "method-override": "^2.3.6",
     "morgan": "~1.6.1",
     "multer": "latest",
@@ -26,14 +38,12 @@
     "passport-local": "latest",
     "sequelize": "latest",
     "serve-favicon": "~2.3.0",
-    "sqlite3": "^3.1.8"
+    "sqlite3": "^3.1.8",
+    "tiny-lr": "^1.0.5"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "sequelize": "^3.18.0",
-    "sequelize-cli": "^2.3.1",
-    "grunt": "latest",
-    "grunt-cli": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-nodemon": "latest"
+    "sequelize-cli": "^2.3.1"
   }
 }
