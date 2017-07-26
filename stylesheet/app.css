@@ -329,6 +329,10 @@
   color: black;
 }
 
+.website-title a img {
+  border-radius: 20px;
+}
+
 .posts {
   margin: 40px;
 }
