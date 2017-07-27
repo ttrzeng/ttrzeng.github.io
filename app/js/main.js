@@ -6,19 +6,19 @@ TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 		$stateProvider
 			.state('blogPosts', {
 				url: '/',
-				templateUrl: 'views/posts.html'
+				templateUrl: 'app/app/views/posts.html'
 			})
 			.state('profile', {
 				url: '/profile',
-				templateUrl: 'views/profile.html'
+				templateUrl: 'app/views/profile.html'
 			})
 			.state('experience', {
 				url: '/experience',
-				templateUrl: 'views/experience.html'
+				templateUrl: 'app/views/experience.html'
 			})
 			.state('projects', {
 				url: '/projects',
-				templateUrl: 'views/projects.html'
+				templateUrl: 'app/views/projects.html'
 			})
 			.state('blog6', {
 				url: '/05-22-2017',
