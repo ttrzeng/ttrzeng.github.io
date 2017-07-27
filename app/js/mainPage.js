@@ -4,7 +4,7 @@
 ////////////////////////////////////
 
 
-TalentPage.controller('MainPageController', ['$scope',
+TalentPage.controller('MainPageController',  
     function($scope){
 
 	var vm = this;
@@ -51,4 +51,4 @@ TalentPage.controller('MainPageController', ['$scope',
     };
 
 
-}]);
+});

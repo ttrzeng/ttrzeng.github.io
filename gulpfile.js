@@ -73,8 +73,7 @@ gulp.task('min-css', function() {
 gulp.task('images', function() {
   return gulp.src(SOURCEPATHS.images)
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest(APPPATH.images))
-    .pipe(notify({ message: 'Images task complete' }));
+    .pipe(gulp.dest(APPPATH.images));
 });
 
 
