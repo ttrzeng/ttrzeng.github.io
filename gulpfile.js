@@ -24,7 +24,7 @@ gulp.task('webserver', function() {
 
 //Path sources
 var SOURCEPATHS = {
-	root: 'src/index.html',
+	root: 'index.html',
 	views: 'src/views/*.html',
 	stylesheet: 'src/stylesheet/*.css',
 	javascript: 'src/javascript/*.js',
@@ -33,12 +33,12 @@ var SOURCEPATHS = {
 }
 
 var APPPATH = {
-	root: 'app',
-	css: 'app/css',
-	js: 'app/js',
-	images: 'app/images',
-	views: 'app/views',
-	blogposts: 'app/blogposts'
+	root: '',
+	css: 'css',
+	js: 'js',
+	images: 'images',
+	views: 'views',
+	blogposts: 'blogposts'
 }
 
 // gulp.task('sass', function() {
