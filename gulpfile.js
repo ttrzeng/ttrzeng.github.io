@@ -112,6 +112,9 @@ gulp.task('blogposts', function() {
 // Watch
 gulp.task('watch', ['serve'], function() {
 
+  // Create LiveReload server
+  livereload.listen();
+
   // Watch .scss files
   //gulp.watch('sass/**/*.scss', ['styles']);
 
@@ -131,8 +134,7 @@ gulp.task('watch', ['serve'], function() {
   // Watch image files
   gulp.watch(SOURCEPATHS.images, ['images']);
 
-  // Create LiveReload server
-  livereload.listen();
+  
 
 });
 
