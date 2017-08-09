@@ -132,7 +132,7 @@ gulp.task('watch', ['serve'], function() {
   gulp.watch(SOURCEPATHS.images, ['images']);
 
   // Create LiveReload server
-  var server = livereload();
+  livereload.listen();
 
 });
 

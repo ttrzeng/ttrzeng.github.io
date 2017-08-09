@@ -20,6 +20,10 @@ TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				url: '/projects',
 				templateUrl: 'views/projects.html'
 			})
+			.state('blog7', {
+				url: '/08-09-2017',
+				templateUrl: 'blogposts/08-09-2017.html'
+			})
 			.state('blog6', {
 				url: '/05-22-2017',
 				templateUrl: 'blogposts/05-22-2017.html'
@@ -69,7 +73,8 @@ TalentPage.controller('MainPageController', ['$scope',
         menu     = document.getElementById('menu'),
         menuLink = document.getElementById('menuLink');
 
-    $scope.blogposts = [{blogNum: 'blog6', name: 'Thoughts after graduation', date: 'May 22, 2017'},
+    $scope.blogposts = [{blogNum: 'blog7', name: 'Gonna science the shit out of myself', date: 'August 9, 2017'},
+                        {blogNum: 'blog6', name: 'Thoughts after graduation', date: 'May 22, 2017'},
                         {blogNum: 'blog5', name: 'Motivation vs Discipline', date: 'January 16 2017'},
                         {blogNum: 'blog4', name: 'The momentum of failure and success', date: 'November 6 2016'},
                         {blogNum: 'blog3', name: 'Dealing with difficult concepts and logic', date: 'September 6 2016'},
