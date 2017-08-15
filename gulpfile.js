@@ -15,6 +15,7 @@ var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
 	clean = require('gulp-clean'),
+	merge = require('merge-stream'),
 	server = lr();
 
 // Server - listed on localhost:8080
@@ -26,7 +27,8 @@ gulp.task('webserver', function() {
 var SOURCEPATHS = {
 	root: 'index.html',
 	views: 'src/views/*.html',
-	stylesheet: 'src/stylesheet/*.css',
+	cssFiles: 'src/stylesheet/cssFiles/*.css',
+	sassFiles: 'src/stylesheet/scss/*.scss',
 	javascript: 'src/javascript/*.js',
 	images: 'src/assets/**',
 	blogposts: 'src/blogposts/*.html'
@@ -41,12 +43,32 @@ var APPPATH = {
 	blogposts: 'app/blogposts'
 }
 
-// gulp.task('sass', function() {
-//   return gulp.src('styles/styles.scss')
-// 	.pipe(sass({ style: 'expanded' }))
-// 	.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-// 	.pipe(gulp.dest('app/scss'))
-// 	.pipe(notify({ message: 'Styles task complete' }));
+//Sass compiler
+gulp.task('sass', function() {
+  var outsideCSS = gulp.src(SOURCEPATHS.cssFiles);
+  var sassFiles;
+
+  sassFiles = gulp.src(SOURCEPATHS.sassFiles)
+	.pipe(sass({ style: 'expanded' }))
+	.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+	
+	//merge and minimize
+	return merge(outsideCSS, sassFiles)
+	.pipe(concat('styles.css'))
+	.pipe(gulp.dest(APPPATH.css))
+	.pipe(rename('styles.min.css'))
+	.pipe(minifycss())
+	.pipe(gulp.dest(APPPATH.css))
+});
+
+//Minify CSS
+// gulp.task('min-css', function() {
+// 	return gulp.src(SOURCEPATHS.cssFiles)
+// 	.pipe(concat('styles.css'))
+// 	.pipe(gulp.dest(APPPATH.css))
+// 	.pipe(rename('styles.min.css'))
+// 	.pipe(minifycss())
+// 	.pipe(gulp.dest(APPPATH.css))
 // });
 
 // Concatenate & Minify JS
@@ -59,16 +81,6 @@ gulp.task('scripts', function() {
 		.pipe(gulp.dest(APPPATH.js));
 });
 
-//Minify CSS
-gulp.task('min-css', function() {
-	return gulp.src(SOURCEPATHS.stylesheet)
-	.pipe(concat('styles.css'))
-	.pipe(gulp.dest(APPPATH.css))
-	.pipe(rename('styles.min.css'))
-	.pipe(minifycss())
-	.pipe(gulp.dest(APPPATH.css))
-});
-
 // Images
 gulp.task('images', function() {
   return gulp.src(SOURCEPATHS.images)
@@ -78,7 +90,7 @@ gulp.task('images', function() {
 
 
 //Browser Sync
-gulp.task('serve', ['webserver', 'scripts', 'min-css', 'images', 'copy', 'blogposts', 'clean-html'], function(){
+gulp.task('serve', ['webserver', 'scripts', 'sass', 'images', 'copy', 'blogposts', 'clean-html'], function(){
 	browserSync.init([APPPATH.css + '/*.css', APPPATH.views + '/*.html', APPPATH.root, APPPATH.js + '/*.js', APPPATH.images + '/**'], {
 		server: {
 			baseDir: APPPATH.root
@@ -126,7 +138,7 @@ gulp.task('watch', ['serve'], function() {
   gulp.watch(SOURCEPATHS.blogposts, ['copy']);
 
   //Watch css files
-  gulp.watch(SOURCEPATHS.stylesheet, ['min-css']);
+  gulp.watch(SOURCEPATHS.stylesheet, ['sass']);
 
   // Watch .js files
   gulp.watch(SOURCEPATHS.javascript, ['scripts']);
