@@ -6,47 +6,47 @@ TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 		$stateProvider
 			.state('blogPosts', {
 				url: '/',
-				templateUrl: 'views/posts.html'
+				templateUrl: 'app/views/posts.html'
 			})
 			.state('profile', {
 				url: '/profile',
-				templateUrl: 'views/profile.html'
+				templateUrl: 'app/views/profile.html'
 			})
 			.state('experience', {
 				url: '/experience',
-				templateUrl: 'views/experience.html'
+				templateUrl: 'app/views/experience.html'
 			})
 			.state('projects', {
 				url: '/projects',
-				templateUrl: 'views/projects.html'
+				templateUrl: 'app/views/projects.html'
 			})
 			.state('blog7', {
 				url: '/08-09-2017',
-				templateUrl: 'blogposts/08-09-2017.html'
+				templateUrl: 'app/blogposts/08-09-2017.html'
 			})
 			.state('blog6', {
 				url: '/05-22-2017',
-				templateUrl: 'blogposts/05-22-2017.html'
+				templateUrl: 'app/blogposts/05-22-2017.html'
 			})
 			.state('blog5', {
 				url: '/01-16-2017',
-				templateUrl: 'blogposts/01-06-2017.html'
+				templateUrl: 'app/blogposts/01-06-2017.html'
 			})
 			.state('blog4', {
 				url: '/11-06-2016',
-				templateUrl: 'blogposts/11-06-2016.html'
+				templateUrl: 'app/blogposts/11-06-2016.html'
 			})
 			.state('blog3', {
 				url: '/09-06-2016',
-				templateUrl: 'blogposts/09-06-2016.html'
+				templateUrl: 'app/blogposts/09-06-2016.html'
 			})
 			.state('blog2', {
 				url: '/06-19-2016',
-				templateUrl: 'blogposts/06-19-2016.html'
+				templateUrl: 'app/blogposts/06-19-2016.html'
 			})
 			.state('blog1', {
 				url: '/05-19-2016',
-				templateUrl: 'blogposts/05-19-2016.html'
+				templateUrl: 'app/blogposts/05-19-2016.html'
 		});
 
 		$urlRouterProvider.otherwise('/');
@@ -113,97 +113,97 @@ TalentPage.controller('MainPageController', ['$scope',
 
 
 }]);
-// $(document).ready(function() {
+$(document).ready(function() {
 
-//   // Variables
-//   var $codeSnippets = $('.code-example-body'),
-//       $nav = $('.navbar'),
-//       $body = $('body'),
-//       $window = $(window),
-//       $popoverLink = $('[data-popover]'),
-//       navOffsetTop = $nav.offset().top,
-//       $document = $(document),
-//       entityMap = {
-//         "&": "&amp;",
-//         "<": "&lt;",
-//         ">": "&gt;",
-//         '"': '&quot;',
-//         "'": '&#39;',
-//         "/": '&#x2F;'
-//       }
+  // Variables
+  var $codeSnippets = $('.code-example-body'),
+      $nav = $('.navbar'),
+      $body = $('body'),
+      $window = $(window),
+      $popoverLink = $('[data-popover]'),
+      navOffsetTop = $nav.offset().top,
+      $document = $(document),
+      entityMap = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': '&quot;',
+        "'": '&#39;',
+        "/": '&#x2F;'
+      }
 
-//   function init() {
-//     $window.on('scroll', onScroll)
-//     $window.on('resize', resize)
-//     $popoverLink.on('click', openPopover)
-//     $document.on('click', closePopover)
-//     $('a[href^="#"]').on('click', smoothScroll)
-//     buildSnippets();
-//   }
+  function init() {
+    $window.on('scroll', onScroll)
+    $window.on('resize', resize)
+    $popoverLink.on('click', openPopover)
+    $document.on('click', closePopover)
+    $('a[href^="#"]').on('click', smoothScroll)
+    buildSnippets();
+  }
 
-//   function smoothScroll(e) {
-//     e.preventDefault();
-//     $(document).off("scroll");
-//     var target = this.hash,
-//         menu = target;
-//     $target = $(target);
-//     $('html, body').stop().animate({
-//         'scrollTop': $target.offset().top-40
-//     }, 0, 'swing', function () {
-//         window.location.hash = target;
-//         $(document).on("scroll", onScroll);
-//     });
-//   }
+  function smoothScroll(e) {
+    e.preventDefault();
+    $(document).off("scroll");
+    var target = this.hash,
+        menu = target;
+    $target = $(target);
+    $('html, body').stop().animate({
+        'scrollTop': $target.offset().top-40
+    }, 0, 'swing', function () {
+        window.location.hash = target;
+        $(document).on("scroll", onScroll);
+    });
+  }
 
-//   function openPopover(e) {
-//     e.preventDefault()
-//     closePopover();
-//     var popover = $($(this).data('popover'));
-//     popover.toggleClass('open')
-//     e.stopImmediatePropagation();
-//   }
+  function openPopover(e) {
+    e.preventDefault()
+    closePopover();
+    var popover = $($(this).data('popover'));
+    popover.toggleClass('open')
+    e.stopImmediatePropagation();
+  }
 
-//   function closePopover(e) {
-//     if($('.popover.open').length > 0) {
-//       $('.popover').removeClass('open')
-//     }
-//   }
+  function closePopover(e) {
+    if($('.popover.open').length > 0) {
+      $('.popover').removeClass('open')
+    }
+  }
 
-//   $("#button").click(function() {
-//     $('html, body').animate({
-//         scrollTop: $("#elementtoScrollToID").offset().top
-//     }, 2000);
-// });
+  $("#button").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#elementtoScrollToID").offset().top
+    }, 2000);
+});
 
-//   function resize() {
-//     $body.removeClass('has-docked-nav')
-//     navOffsetTop = $nav.offset().top
-//     onScroll()
-//   }
+  function resize() {
+    $body.removeClass('has-docked-nav')
+    navOffsetTop = $nav.offset().top
+    onScroll()
+  }
 
-//   function onScroll() {
-//     if(navOffsetTop < $window.scrollTop() && !$body.hasClass('has-docked-nav')) {
-//       $body.addClass('has-docked-nav')
-//     }
-//     if(navOffsetTop > $window.scrollTop() && $body.hasClass('has-docked-nav')) {
-//       $body.removeClass('has-docked-nav')
-//     }
-//   }
+  function onScroll() {
+    if(navOffsetTop < $window.scrollTop() && !$body.hasClass('has-docked-nav')) {
+      $body.addClass('has-docked-nav')
+    }
+    if(navOffsetTop > $window.scrollTop() && $body.hasClass('has-docked-nav')) {
+      $body.removeClass('has-docked-nav')
+    }
+  }
 
-//   function escapeHtml(string) {
-//     return String(string).replace(/[&<>"'\/]/g, function (s) {
-//       return entityMap[s];
-//     });
-//   }
+  function escapeHtml(string) {
+    return String(string).replace(/[&<>"'\/]/g, function (s) {
+      return entityMap[s];
+    });
+  }
 
-//   function buildSnippets() {
-//     $codeSnippets.each(function() {
-//       var newContent = escapeHtml($(this).html())
-//       $(this).html(newContent)
-//     })
-//   }
+  function buildSnippets() {
+    $codeSnippets.each(function() {
+      var newContent = escapeHtml($(this).html())
+      $(this).html(newContent)
+    })
+  }
 
 
-//   init();
+  init();
 
-// });
+});

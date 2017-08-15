@@ -33,12 +33,12 @@ var SOURCEPATHS = {
 }
 
 var APPPATH = {
-	root: '',
-	css: 'css',
-	js: 'js',
-	images: 'images',
-	views: 'views',
-	blogposts: 'blogposts'
+	root: 'app',
+	css: 'app/css',
+	js: 'app/js',
+	images: 'app/images',
+	views: 'app/views',
+	blogposts: 'app/blogposts'
 }
 
 // gulp.task('sass', function() {
@@ -78,7 +78,7 @@ gulp.task('images', function() {
 
 
 //Browser Sync
-gulp.task('serve', ['webserver', 'scripts', 'min-css', 'images', 'copy', 'copy-root', 'blogposts', 'clean-html'], function(){
+gulp.task('serve', ['webserver', 'scripts', 'min-css', 'images', 'copy', 'blogposts', 'clean-html'], function(){
 	browserSync.init([APPPATH.css + '/*.css', APPPATH.views + '/*.html', APPPATH.root, APPPATH.js + '/*.js', APPPATH.images + '/**'], {
 		server: {
 			baseDir: APPPATH.root
@@ -98,10 +98,10 @@ gulp.task('copy', ['clean-html'], function() {
 });
 
 //Copy index.html
-gulp.task('copy-root', function() {
-	gulp.src(SOURCEPATHS.root)
-	.pipe(gulp.dest(APPPATH.root))
-});
+// gulp.task('copy-root', function() {
+// 	gulp.src(SOURCEPATHS.root)
+// 	.pipe(gulp.dest(APPPATH.root))
+// });
 
 //Copy blogposts
 gulp.task('blogposts', function() {
@@ -119,7 +119,7 @@ gulp.task('watch', ['serve'], function() {
   //gulp.watch('sass/**/*.scss', ['styles']);
 
   //Watch for view changes
-  gulp.watch(SOURCEPATHS.root, ['copy-root']);
+  //gulp.watch(SOURCEPATHS.root, ['copy-root']);
   gulp.watch(SOURCEPATHS.views, ['copy']);
 
   //Watch blogposts
