@@ -18,7 +18,7 @@ var gulp = require('gulp'),
 	merge = require('merge-stream'),
 	server = lr();
 
-// Server - listed on localhost:8080
+//Server - listed on localhost:8080
 gulp.task('webserver', function() {
   connect.server();
 });
