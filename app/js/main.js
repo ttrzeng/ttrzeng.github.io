@@ -79,7 +79,7 @@ TalentPage.controller('MainPageController', ['$scope',
         menu     = document.getElementById('menu'),
         menuLink = document.getElementById('menuLink');
 
-    $scope.blogposts = [{blogNum: 'blog8', name: 'Core components of self improvement', date: 'September 26, 2017'},
+    $scope.blogposts = [{blogNum: 'blog8', name: 'Core components to self improvement', date: 'September 26, 2017'},
                         {blogNum: 'blog7', name: 'Gonna science the shit out of myself', date: 'August 9, 2017'},
                         {blogNum: 'blog6', name: 'Thoughts after graduation', date: 'May 22, 2017'},
                         {blogNum: 'blog5', name: 'Motivation vs Discipline', date: 'January 16 2017'},
