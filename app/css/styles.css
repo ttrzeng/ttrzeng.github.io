@@ -3620,7 +3620,8 @@
   margin: 0; }
 
 .noPadding {
-  padding: 0; }
+  padding: 0;
+  list-style-type: none; }
 
 .hackathons {
   text-align: center; }
