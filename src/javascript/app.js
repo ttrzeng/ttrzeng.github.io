@@ -20,6 +20,10 @@ TalentPage.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				url: '/projects',
 				templateUrl: 'app/views/projects.html'
 			})
+			.state('blog9', {
+				url: '/01-01-2018',
+				templateUrl: 'app/blogposts/01-01-2018.html'
+			})
 			.state('blog8', {
 				url: '/09-26-2017',
 				templateUrl: 'app/blogposts/09-26-2017.html'
