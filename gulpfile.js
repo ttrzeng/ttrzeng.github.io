@@ -35,7 +35,7 @@ var SOURCEPATHS = {
 }
 
 var APPPATH = {
-	root: 'app',
+	root: './',
 	css: 'app/css',
 	js: 'app/js',
 	images: 'app/images',
