@@ -4,10 +4,10 @@
 const nextConfig = {
   basePath: '',
   trailingSlash: true,
-  // output: 'export',
-  // images: {
-  //   unoptimized: true,
-  // },
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
 }
  
 export default nextConfig
