@@ -9,7 +9,7 @@ export const DATA = {
   description:
     "From physicist to software engineer, driven by a passion for building creative solutions with designs that make an impact.",
   summary:
-    "Experienced software engineer with 7+ years in designing, prototyping, and developing robust, enterprise-level websites. Skilled in React, Redux, JavaScript/TypeScript, MUI, Styled Components, and Node.js. Specializes in creating scalable, modular web components optimized for long-term maintainability and growth.",
+    "Experienced software engineer with 8+ years in designing, prototyping, and developing robust, enterprise-level websites. Skilled in React, Redux, JavaScript/TypeScript, MUI, Styled Components, and Node.js. Specializes in creating scalable, modular web components optimized for long-term maintainability and growth.",
   avatarUrl: "/me.jpg",
   skills: [
     "React.js",

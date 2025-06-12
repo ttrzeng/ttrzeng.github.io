@@ -3,8 +3,11 @@
  */
 const nextConfig = {
   basePath: '',
-  output: 'export',
   trailingSlash: true,
+  // output: 'export',
+  // images: {
+  //   unoptimized: true,
+  // },
 }
  
 export default nextConfig
