@@ -1,10 +1,1 @@
 node_modules/
-
-# Next.js build output
-.next/
-
-# Static export output (for `next export`)
-out/
-
-# Optional: logs or other temp files
-*.log
