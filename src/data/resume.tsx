@@ -35,16 +35,14 @@ export const DATA = {
         name: "GitHub",
         url: "https://github.com/ttrzeng",
         icon: Icons.github,
-
         navbar: true,
       },
-      LinkedIn: {
-        name: "LinkedIn",
-        url: "https://linkedin.com/in/ttrzeng",
-        icon: Icons.linkedin,
-
-        navbar: true,
-      },
+      // LinkedIn: {
+      //   name: "LinkedIn",
+      //   url: "https://linkedin.com/in/ttrzeng",
+      //   icon: Icons.linkedin,
+      //   navbar: true,
+      // },
     },
   },
 
@@ -56,10 +54,14 @@ export const DATA = {
       location: "Remote",
       title: "Software engineer",
       logoUrl: "/okta.png",
-      start: "Oct 2021",
+      start: "October 2021",
       end: "Present",
-      description:
-        "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
+      description: [
+        "Built and owned the Express Configuration Wizard; cut setup time 80% and drove $2M+ migration revenue",
+        "Led front-end for Fine-Grained Authorization (FGA) Dashboard; improved enterprise retention",
+        "Rolled out dark mode + testing infra; +25% user satisfaction, +30% CI reliability",
+        "Delivered Usage Metrics & Billing dashboards for customers to monitor consumption, quotas, and costs self-serve, reducing billing support requests and improving cost visibility",
+      ],
     },
     {
       company: "Auth0",
@@ -68,10 +70,14 @@ export const DATA = {
       location: "Remote",
       title: "Software Engineer",
       logoUrl: "/auth0.png",
-      start: "Oct 2021",
+      start: "October 2021",
       end: "Present",
-      description:
-        "Upgraded Okta/Auth0's UI library for improved scalability and maintenance, and modernized Okta's codebase with React, reducing onboarding time by 40%. Developed reusable components for Auth0's documentation, cutting future feature build time by 20%, and created custom form components, reducing form-related development by 70%.",
+      description: [
+        "Upgraded Okta/Auth0's UI library for scalability and maintainability",
+        "Modernized Okta's codebase with React; reduced onboarding time by 40%",
+        "Built reusable docs components; cut future feature build time by 20%",
+        "Created custom form components; reduced form-related development by 70%",
+      ],
     },
     {
       company: "Yuhu",
@@ -82,8 +88,12 @@ export const DATA = {
       logoUrl: "/yuhu.jpg",
       start: "January 2021",
       end: "October 2021",
-      description:
-        "Led a team of engineers and designers to improve client workflows, boosting payment processing and maintenance efficiency by 60%. Developed payment features in Yuhu's main app, increasing revenue by ~$2 per unit for 200k units. Reduced technical debt by 10% and optimized engineering management workflows, driving overall operational efficiency.",
+      description: [
+        "Led engineers/designers to improve client workflows",
+        "Boosted payment processing and maintenance efficiency by 60%",
+        "Built payment features; +~$2 revenue per unit across 200k units",
+        "Reduced technical debt by 10% and optimized eng management workflows",
+      ],
     },
     {
       company: "Sandvine",
@@ -94,8 +104,11 @@ export const DATA = {
       logoUrl: "/sandvine.png",
       start: "September 2017",
       end: "December 2020",
-      description:
-        "Developed a web app to configure 1,000+ servers simultaneously, saving 100 hours per week in configuration time. Created a tool for issuing licenses to clients across all company products, saving sales engineers 30 hours per sale. In addition, built a web framework that enables users to create dynamic dashboards without code, saving an estimated ~$3.6M in future development costs.",
+      description: [
+        "Developed a web app to configure 1,000+ servers simultaneously; saved ~100 hrs/week",
+        "Created a licensing tool used across products; saved sales engineers ~30 hrs per sale",
+        "Built a no-code dashboard framework; saved an estimated ~$3.6M in future dev costs",
+      ],
     },
     {
       company: "Looka",
@@ -106,8 +119,11 @@ export const DATA = {
       logoUrl: "/looka.png",
       start: "April 2017",
       end: "September 2017",
-      description:
-        "Improved logo alignment accuracy to 95% by geometrically aligning fonts and icons. Accelerated the logo editor by 100x, enabling real-time editing responses. Developed a feature that aligns logos realistically on various products, such as t-shirts, banners, doors, and mugs.",
+      description: [
+        "Improved logo alignment accuracy to 95% via geometric font/icon alignment",
+        "Accelerated the logo editor by 100× for real-time editing",
+        "Built realistic logo mockups on products (t-shirts, banners, doors, mugs)",
+      ],
     },
     {
       company: "Skywatch",
@@ -118,8 +134,43 @@ export const DATA = {
       logoUrl: "/skywatch.jpeg",
       start: "August 2015",
       end: "December 2015",
-      description:
-        "Reduced satellite data inaccuracies by 80% by eliminating false positives. Created graphs and analytic tools for astrophysics research, supporting NASA and academic professors. Developed Skywatch's system admin to configure and monitor daily data from NASA and user activities, saving 8 hours of manual work per day.",
+      description: [
+        "Reduced satellite data inaccuracies by 80% by eliminating false positives",
+        "Built graphs and analytics tools for astrophysics research (NASA, academia)",
+        "Developed system admin to configure/monitor daily NASA data and user activity; saved 8 hrs/day",
+      ],
+    },
+    {
+      company: "Scotiabank",
+      href: "https://scotiabank.com",
+      badges: [],
+      location: "Toronto, ON",
+      title: "Process Engineer Intern",
+      logoUrl: "/scotiabank.png",
+      start: "January 2014",
+      end: "August 2014",
+      description: [
+        "Automated a reporting platform to monitor operational productivity across the financial district, replacing manual reporting",
+        "Built a .NET collaboration app enabling teams to securely share and edit data in real time",
+        "Launched an internal analytics site on SharePoint for self-serve insights and dashboards",
+        "Created reconciliation scripts that reduced financial transaction discrepancies and processing time",
+      ],
+    },
+    {
+      company: "Natural Resources Canada",
+      href: "https://natural-resources.canada.ca",
+      badges: [],
+      location: "Ottawa, ON",
+      title: "Satellite Analysis Programmer Intern",
+      logoUrl: "/nrcan.png",
+      start: "January 2013",
+      end: "April 2013",
+      description: [
+        "Developed a satellite data processing pipeline to generate imagery products from raw inputs",
+        "Redesigned the GUI framework in Perl/wxWidgets, improving usability and developer velocity",
+        "Implemented features for users to produce elevation maps and derived products",
+        "Optimized Gamma remote-sensing workflows, improving analysis efficiency and reliability",
+      ],
     },
   ],
   education: [
