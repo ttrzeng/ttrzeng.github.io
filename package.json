@@ -1,5 +1,5 @@
 {
-  "name": "porfolio",
+  "name": "portfolio",
   "version": "0.1.0",
   "homepage": "https://ttrzeng.github.io",
   "private": true,
@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && next export && gh-pages -d out"
+    "deploy": "next build && gh-pages -d out"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
@@ -16,7 +16,6 @@
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.7",
-    "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.2.10",
@@ -38,6 +37,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
+    "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
